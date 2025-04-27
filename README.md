@@ -28,13 +28,13 @@
 git clone git@github.com:RenderLifeEx/todo-jquery-ansible-lab.git
 cd todo-jquery-ansible-lab
 pnpm install
-npm start dev
+pnpm start dev
 ```
 
 ## 📂 Структура проекта
 
 ```
-todo-jquery-ansible/
+todo-jquery-ansible-lab/
 ├── index.html          # Основной HTML-файл
 └── vite.config.js      # Настройки запуска на localhost
 ```
