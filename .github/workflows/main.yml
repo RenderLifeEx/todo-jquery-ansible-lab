@@ -58,7 +58,6 @@ jobs:
             cd /var/www/renderlife/frontend/
             rm -rf *
             tar -C ./ -xjf ~/uploads/build-front.tar.bz2 --strip-components 1
-            rm -rf ~/uploads/build-front.tar.bz2
 
       - name: Success Notification
         uses: appleboy/telegram-action@master
