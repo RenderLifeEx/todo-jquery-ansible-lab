@@ -21,8 +21,9 @@ jobs:
       - name: Git clone repository
         uses: actions/checkout@v4
 
-      - name: Node install
-        uses: actions/setup-node@v4
+      # Установка Node.js 20.x (LTS)
+      - name: Setup Node.js
+        uses: actions/checkout@v4
         with:
           node-version: 'lts/iron'
           cache: 'pnpm'
