@@ -66,7 +66,7 @@ jobs:
           to: ${{ secrets.MN_TG_CHAT_ID }}
           token: ${{ secrets.TG_BOT_TOKEN }}
           message: |
-            🎉 Деплой приложения «jQuery Todo - фронтенд»
+            🎉 Деплой приложения «jQuery Todo - 🎨 Frontend
             на сервер Мечты успешно завершен.
             Название коммита: ${{ github.event.commits[0].message }}
 
@@ -77,7 +77,7 @@ jobs:
           to: ${{ secrets.MN_TG_CHAT_ID }}
           token: ${{ secrets.TG_BOT_TOKEN }}
           message: |
-            🔥 Деплой приложения «jQuery Todo - фронтенд»
+            🔥 Деплой приложения «jQuery Todo - 🎨 Frontend
             на сервер Мечты завершен неудачей.
             Название коммита: ${{ github.event.commits[0].message }}
 
