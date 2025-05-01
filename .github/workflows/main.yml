@@ -15,11 +15,8 @@ jobs:
           to: ${{ secrets.MN_TG_CHAT_ID }}
           token: ${{ secrets.TG_BOT_TOKEN }}
           message: |
-            === 🎨 Frontend ===
+            ============ 🎨 Frontend ===============
             ♻️ Сейчас будут выкачены новые изменения
-            (примерное время 4 минуты)
-            рекомендуем налить чайка ☕️
-            и дождаться завершения деплоя 😀
 
       - name: Git clone repository
         uses: actions/checkout@v2
@@ -29,11 +26,11 @@ jobs:
         with:
           node-version: 'lts/iron'
 
-      - name: Install dependencies with Yarn
-        run: yarn install
+      - name: Install dependencies with Pnpm
+        run: pnpm install
 
       - name: Compile TypeScript
-        run: yarn build
+        run: pnpm build
 
       - name: Create BZIP deployment package
         run: tar -cjf build-front.tar.bz2 dist/*
