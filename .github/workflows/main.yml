@@ -14,6 +14,7 @@ jobs:
         with:
           to: ${{ secrets.MN_TG_CHAT_ID }}
           token: ${{ secrets.TG_BOT_TOKEN }}
+          format: markdown
           message: |
             ============ 🎨 Frontend ===============
             ♻️ Сейчас будут выкачены новые изменения
@@ -68,6 +69,7 @@ jobs:
         with:
           to: ${{ secrets.MN_TG_CHAT_ID }}
           token: ${{ secrets.TG_BOT_TOKEN }}
+          format: markdown
           message: |
             ✅ Деплой приложения «jQuery Todo - 🎨 Frontend
             на сервер Мечты успешно завершен.
@@ -79,6 +81,7 @@ jobs:
         with:
           to: ${{ secrets.MN_TG_CHAT_ID }}
           token: ${{ secrets.TG_BOT_TOKEN }}
+          format: markdown
           message: |
             ❌ Деплой приложения «jQuery Todo - 🎨 Frontend
             на сервер Мечты завершен неудачей.
