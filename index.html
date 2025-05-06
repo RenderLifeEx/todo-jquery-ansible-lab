@@ -47,7 +47,7 @@
 
                 // Сохраняем новый порядок на сервере
                 $.ajax({
-                    url: "/todos/reorder",
+                    url: API_URL + "/todos/reorder",
                     method: "POST",
                     contentType: "application/json", // обязательно
                     data: JSON.stringify({ ids }), // тоже обязательно

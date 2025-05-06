@@ -2,10 +2,10 @@ export default {
     server: {
       port: 3000,
       proxy: {
-        '/todos': {
-            target: 'http://localhost:3001',
+        '/api': {
+            target: 'http://localhost:3002',
             changeOrigin: true,
-            rewrite: path => path, // не переписываем путь
+            rewrite: (path) => path.replace(/^\/api/, ''), // Удаляем `/api` из пути
         }
       }
     }
