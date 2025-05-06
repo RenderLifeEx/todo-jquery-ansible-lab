@@ -77,8 +77,7 @@ jobs:
             *🌍 Сервер:* Мечта
             *📱 Приложение:* «jQuery Todo»
             *🛠️ Тип:* Frontend
-
-            Название коммита: ||${{ github.event.commits[0].message }}||
+            ||Название коммита: ${{ github.event.commits[0].message }}||
 
       - name: Failed Notification
         if: ${{ failure() }}
@@ -92,7 +91,6 @@ jobs:
             *🌍 Сервер:* Мечта
             *📱 Приложение:* «jQuery Todo»
             *🛠️ Тип:* Frontend
-
-            Название коммита: ||${{ github.event.commits[0].message }}||
+            ||Название коммита: ${{ github.event.commits[0].message }}||
 
 
