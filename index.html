@@ -42,20 +42,21 @@
         // Инициализация сортировки
         $("#todo-list").sortable({
             placeholder: "ui-state-highlight",
-            update: function() {
-                const ids = $(this).sortable("toArray", { attribute: "data-id" });
+            update: function(event, ui) {
+                const movedId = ui.item.data("id");
+                const beforeId = ui.item.next().data("id") || null;
 
-                // Сохраняем новый порядок на сервере
                 $.ajax({
                     url: API_URL + "/todos/reorder",
                     method: "POST",
-                    contentType: "application/json", // обязательно
-                    data: JSON.stringify({ ids }), // тоже обязательно
+                    contentType: "application/json",
+                    data: JSON.stringify({ movedId, beforeId }),
                     success: function(res) {
                         console.log("Reordered!", res);
                     },
                     error: function(xhr) {
                         console.error("Error:", xhr.responseText);
+                        loadTodos(); // Восстанавливаем порядок при ошибке
                     }
                 });
             }
@@ -74,7 +75,7 @@
                     url: API_URL + "/todos",
                     method: "POST",
                     contentType: "application/json",
-                    data: JSON.stringify({ task: taskText }),
+                    data: JSON.stringify({ title: taskText }),
                     success: function() {
                         $("#todo-input").val("");
                         loadTodos();
@@ -95,7 +96,7 @@
                 todos.forEach(todo => {
                     const $li = $(`
                         <li class="todo-item ${todo.completed ? 'completed' : ''}" data-id="${todo.id}">
-                            <span class="task-text">${todo.task}</span>
+                            <span class="title-text">${todo.title}</span>
                             <div class="actions">
                                 <input type="checkbox" class="complete-check" ${todo.completed ? 'checked' : ''}>
                                 <span class="edit-btn ui-icon ui-icon-pencil"></span>
@@ -139,7 +140,7 @@
             // Редактирование задачи
             $(".edit-btn").click(function() {
                 const $li = $(this).closest("li");
-                const $span = $li.find(".task-text");
+                const $span = $li.find(".title-text");
                 const currentText = $span.text();
                 const id = $li.data("id");
 
@@ -157,7 +158,7 @@
                             url: API_URL + "/todos/" + id,
                             method: "PUT",
                             contentType: "application/json",
-                            data: JSON.stringify({ task: newText }),
+                            data: JSON.stringify({ title: newText }),
                             success: function() {
                                 loadTodos();
                             },
@@ -187,6 +188,7 @@
                     data: JSON.stringify({ completed: completed }),
                     success: function() {
                         $li.toggleClass("completed", completed);
+                        loadTodos(); // Перезагружаем, чтобы обновить сортировку
                     },
                     error: function(xhr) {
                         console.error("Error:", xhr.responseText);
