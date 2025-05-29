@@ -3,7 +3,7 @@ export default {
       port: 3000,
       proxy: {
         '/api': {
-            target: 'http://localhost:3002',
+            target: 'http://localhost:3001',
             changeOrigin: true,
             rewrite: (path) => path.replace(/^\/api/, ''), // Удаляем `/api` из пути
         }

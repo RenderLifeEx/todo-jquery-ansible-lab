@@ -9,7 +9,7 @@
 ## 📌 Особенности проекта
 
 - Минималистичный Todo List на чистом jQuery
-- Репозиторий с плейбуками [Ansible](https://github.com/RenderLifeEx/ansible-lab#)
+- Репозиторий с плейбуками и настройками nginx [тут](https://github.com/RenderLifeEx/ansible-lab#)
 - Запускается на Node.js v20
 
 ## 🛠 Технологический стек
@@ -28,7 +28,7 @@
 git clone git@github.com:RenderLifeEx/todo-jquery-ansible-lab.git
 cd todo-jquery-ansible-lab
 pnpm install
-pnpm start dev
+pnpm run dev
 ```
 
 ## 📂 Структура проекта
