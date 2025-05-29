@@ -75,7 +75,7 @@ jobs:
           token: ${{ secrets.TG_BOT_TOKEN }}
           format: markdown
           message: |
-            *✅ Деплой успешно завершен*
+            *✅ Деплой успешно завершен ✅*
             *🌍 Сервер:* Мечта
             *📱 Приложение:* «jQuery Todo»
             *🛠️ Тип:* Frontend
