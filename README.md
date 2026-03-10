@@ -28,8 +28,10 @@
 git clone git@github.com:RenderLifeEx/todo-jquery-ansible-lab.git
 cd todo-jquery-ansible-lab
 pnpm install
+nvm use 20
 pnpm run dev
 ```
+Иногда после запуска почему то не приходят задачи и при создании ручка POST отдает 404, но если перезапустить сервер бека или написать в src/routes/todos.ts на беке консоль лог то начинает работать
 
 ## 📂 Структура проекта
 
